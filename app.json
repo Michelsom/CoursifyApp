@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "CoursifyApp",
+    "slug": "CoursifyApp",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
