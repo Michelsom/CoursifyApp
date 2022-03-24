@@ -18,7 +18,7 @@ export const RenderItemCategories: React.FC<PostsProps> = ({ item }) => {
     <S.Content>
       <S.RowToTexts>
         <S.TextTitle>{item.name}</S.TextTitle>
-        <Text>VER MAIS</Text>
+        <S.TextSeeMore>VER MAIS</S.TextSeeMore>
       </S.RowToTexts>
       <FlatList
         data={posts.filter((e) => e.categories.includes(item.id) )}
