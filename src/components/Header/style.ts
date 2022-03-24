@@ -4,15 +4,16 @@ import { Feather } from "@expo/vector-icons";
 
 export const HeaderHome = styled.View`
   width: 100%;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.lightColor};
   flex-direction: row;
   height: 64px;
   align-items: flex-start;
   justify-content: space-between;
-  background: #ffffff 0% 0% no-repeat padding-box;
+  background: ${({ theme }) => theme.colors.lightColor} 0% 0% no-repeat
+    padding-box;
   box-shadow: 0px 3px 6px #00000029;
   opacity: 1;
-  elevation: 3;
+  elevation: 2;
 `;
 
 export const ContainerToLogo = styled.View`
@@ -31,7 +32,7 @@ export const ButtonAdministrative = styled.TouchableOpacity`
   align-items: center;
   width: 42px;
   height: 42px;
-  background:#3CC6AA;
+  background: ${({ theme }) => theme.colors.primaryColor};
   border-radius: 30px;
   justify-content: center;
 `;
@@ -43,5 +44,5 @@ export const LogoImage = styled.Image.attrs({
 `;
 export const IconsArrow = styled(Feather)`
   font-size: ${actuatedNormalize(25)}px;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.lightColor};
 `;
