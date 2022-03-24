@@ -7,7 +7,7 @@ import { HeaderProduct } from "../../components/Header";
 import { Image } from "react-native";
 import HTMLView from "react-native-htmlview";
 import theme from "../../global/styles/theme";
-import { GoToWebPage } from "../../components/GoToWebPage/inde";
+import { GoToWebPage } from "../../components/GoToWebPage/index";
 
 export const Products = ({ route }) => {
   const { loading } = useContext(AppContext);

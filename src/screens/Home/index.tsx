@@ -6,7 +6,7 @@ import { HeaderHome } from "../../components/Header";
 import * as S from "./style";
 import React from "react";
 import AppContext from "../../context/app";
-import { GoToWebPage } from "../../components/GoToWebPage/inde";
+import { GoToWebPage } from "../../components/GoToWebPage/index";
 
 export const Home = () => {
   const { categories, loading } = useContext(AppContext);
