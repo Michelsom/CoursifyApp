@@ -1,6 +1,7 @@
 import styled from "styled-components/native";
 import { Feather } from "@expo/vector-icons";
 import { actuatedNormalize } from "../../utils/font-size";
+import theme from "../../global/styles/theme";
 export const Container = styled.View`
   width: 100%;
   height: 100%;
@@ -24,7 +25,8 @@ export const ContainerFilter = styled.View`
 `;
 export const TextFilter = styled.Text`
   font-size: 17px;
-  color: #535353;
+  font-family: ${({ theme }) => theme.fonts.robotoMedium};
+  color: ${({ theme }) => theme.colors.TitleText};
 `;
 export const ListFilter = styled.TouchableOpacity`
   width: 120px;
@@ -44,7 +46,7 @@ export const IconsArrow = styled(Feather)`
 export const GlobalActivityIndicator = styled.ActivityIndicator.attrs({
   size: 50,
 })`
-  color: #2ab598;
+  color: ${({ theme }) => theme.colors.primaryColor};
 `;
 export const GlobalStyleActivityIndicator = styled.View`
   position: absolute;
@@ -60,12 +62,13 @@ export const ViewBottom = styled.View`
   flex-direction: column;
   height: 219px;
   margin-top: 10px;
-  background: #2ab598;
+  background: ${({ theme }) => theme.colors.primaryColor};
 `;
 export const TextDescription = styled.Text`
   text-align: center;
   font-size: 12px;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.lightColor};
+  font-family: ${({ theme }) => theme.fonts.robotoRegular};
   opacity: 1;
 `;
 
@@ -73,7 +76,7 @@ export const ButtonNavigateFromWebSite = styled.TouchableOpacity`
   margin-top: 20px;
   padding: 19px 25px;
   border-radius: 19px;
-  background-color: #ffa900;
+  background-color: ${({ theme }) => theme.colors.secondaryColor};
   justify-content: center;
   align-items: center;
 `;
@@ -81,5 +84,6 @@ export const ButtonNavigateFromWebSite = styled.TouchableOpacity`
 export const TextButton = styled.Text`
   text-align: center;
   font-size: 17px;
-  color: #ffffff;
+  font-family: ${({ theme }) => theme.fonts.robotoRegular};
+  color: ${({ theme }) => theme.colors.lightColor};
 `;

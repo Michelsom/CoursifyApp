@@ -6,9 +6,10 @@ import { HeaderHome } from "../../components/Header";
 import * as S from "./style";
 import React from "react";
 import AppContext from "../../context/app";
+import { GoToWebPage } from "../../components/GoToWebPage/inde";
 
 export const Home = () => {
-  const { categories, loading, media, posts } = useContext(AppContext);
+  const { categories, loading } = useContext(AppContext);
 
   return (
     <S.Container>
@@ -22,11 +23,7 @@ export const Home = () => {
           <HeaderHome />
 
           <FlatList
-            data={categories.map((cat) => {
-              if (posts.map((post) => post.categories.includes(cat.id))) {
-                return cat;
-              }
-            })}
+            data={categories}
             keyExtractor={(e) => e.id.toString()}
             renderItem={({ item }) => <RenderItemCategories item={item} />}
             ListHeaderComponent={() => {
@@ -41,27 +38,7 @@ export const Home = () => {
               );
             }}
             ListFooterComponent={() => {
-              return (
-                <S.ViewBottom>
-                  <Image
-                  resizeMode="contain"
-                    source={require("../../assets/Icons/logo-coursify-w.png")}
-                    style={{  width: 150, height: 60 }}
-                  />
-                  <S.TextDescription>
-                    O Coursify.me é uma plataforma de ensino a distância,{"\n"}
-                    onde qualquer pessoa ou empresa pode construir seu{"\n"}EAD
-                    e vender cursos pela internet.
-                  </S.TextDescription>
-                  <S.ButtonNavigateFromWebSite
-                    onPress={() => {
-                      Linking.openURL("https://coursify.me/");
-                    }}
-                  >
-                    <S.TextButton>Quero conhecer a plataforma!</S.TextButton>
-                  </S.ButtonNavigateFromWebSite>
-                </S.ViewBottom>
-              );
+              return <GoToWebPage />;
             }}
           />
         </>
