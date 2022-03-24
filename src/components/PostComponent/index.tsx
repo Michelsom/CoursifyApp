@@ -1,6 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useContext, useEffect, useState } from "react";
-import { ActivityIndicator } from "react-native";
 import AppContext from "../../context/app";
 import { Posts } from "../../models/posts";
 import * as S from "./style";
@@ -10,10 +9,10 @@ interface PostsProps {
 }
 
 export const PostComponent: React.FC<PostsProps> = ({ item }) => {
-  const { loading, media } = useContext(AppContext);
+  const { goToPostSpecific, loading, media } = useContext(AppContext);
   const [image, setImage] = useState<string>();
   const { navigate } = useNavigation();
-  function asd() {
+  function ImageComponent() {
     if (media) {
       media
         .filter((e) => e.post === item.id)
@@ -22,14 +21,20 @@ export const PostComponent: React.FC<PostsProps> = ({ item }) => {
         });
     }
   }
-
+  async function GoToPost() {
+    const returnPost = await goToPostSpecific(item.id);
+    if (returnPost) {
+      navigate("Products" as never, { item: returnPost, image:image } as never);
+    }
+  }
   useEffect(() => {
-    asd();
+    ImageComponent();
   }, []);
+
   return (
     <S.Content
       onPress={() => {
-        // navigate("");
+        GoToPost();
       }}
     >
       <S.ImageMedia

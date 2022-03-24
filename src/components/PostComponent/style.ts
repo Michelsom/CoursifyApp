@@ -6,20 +6,19 @@ export const Content = styled.TouchableOpacity`
   height: 325px;
   margin-left: 35px;
   margin-top: 28px;
-  border: 1px solid #0000000F;
-border-radius:12px;
+  border: 0.6px solid #0000000f;
+  border-radius: 12px;
 `;
 export const TextTitle = styled.Text`
   text-align: left;
   font-size: 16px;
   width: 100%;
   margin-top: 15px;
-  color: #2ab598;
+  font-family: ${({ theme }) => theme.fonts.robotoBold};
+  color: ${({ theme }) => theme.colors.primaryColor};
   opacity: 1;
 `;
-export const ImageMedia = styled.Image`
-
-`;
+export const ImageMedia = styled.Image``;
 export const RowToTexts = styled.View`
   flex-direction: column;
   padding: 0 9px;
@@ -34,8 +33,9 @@ export const HeadMore = styled.Text`
   text-align: left;
   font-size: 20px;
   width: 100%;
+  font-family: ${({ theme }) => theme.fonts.robotoBold};
   margin-top: 15px;
-  color: #FDA506;
+  color: ${({ theme }) => theme.colors.secondaryColor};
   opacity: 1;
 `;
 export const Description = styled.Text`
@@ -43,6 +43,7 @@ export const Description = styled.Text`
   font-size: 15px;
   width: 100%;
   margin-top: 15px;
-  color: #868686;
+  font-family: ${({ theme }) => theme.fonts.robotoRegular};
+  color: ${({ theme }) => theme.colors.descriptionTextColor};
   opacity: 1;
 `;
