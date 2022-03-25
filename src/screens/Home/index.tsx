@@ -1,15 +1,22 @@
 import { StatusBar } from "expo-status-bar";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { FlatList, Image, Linking } from "react-native";
 import { RenderItemCategories } from "../../components/CategoriesToHomePage";
 import { HeaderHome } from "../../components/Header";
 import * as S from "./style";
-import React from "react";
 import AppContext from "../../context/app";
 import { GoToWebPage } from "../../components/GoToWebPage/index";
+import SelectDropdown from "react-native-select-dropdown";
 
 export const Home = () => {
   const { categories, loading } = useContext(AppContext);
+  const countries = ["A-Z", "Z-A "];
+  async function filterCategories(item) {
+    if (item.name === "Todos") {
+      return true;
+    }
+    return false;
+  }
 
   return (
     <S.Container>
@@ -30,10 +37,19 @@ export const Home = () => {
               return (
                 <S.ContainerFilter>
                   <S.TextFilter>ORDENAR POR:</S.TextFilter>
-                  <S.ListFilter>
-                    <S.TextFilter style={{ marginLeft: 15 }}>A-Z</S.TextFilter>
-                    <S.IconsArrow name="chevron-down" />
-                  </S.ListFilter>
+                  <S.Box>
+                    <S.ListFilter
+                      defaultButtonText={"A-Z"}
+                      data={countries}
+                      onSelect={(selectedItem, index) => {}}
+                      buttonTextAfterSelection={(selectedItem, index) => {
+                        return selectedItem;
+                      }}
+                      rowTextForSelection={(item, index) => {
+                        return item;
+                      }}
+                    />
+                  </S.Box>
                 </S.ContainerFilter>
               );
             }}

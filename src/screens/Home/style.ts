@@ -2,12 +2,17 @@ import styled from "styled-components/native";
 import { Feather } from "@expo/vector-icons";
 import { actuatedNormalize } from "../../utils/font-size";
 import theme from "../../global/styles/theme";
+import SelectDropdown from "react-native-select-dropdown";
 export const Container = styled.View`
   width: 100%;
   height: 100%;
   background: #fff;
 `;
-export const Box = styled.View``;
+export const Box = styled.View`
+border: 1px solid #e6e6e6;
+border-radius: 30px;
+overflow: hidden;
+`;
 
 export const Content = styled.View`
   height: 100%;
@@ -28,14 +33,20 @@ export const TextFilter = styled.Text`
   font-family: ${({ theme }) => theme.fonts.robotoMedium};
   color: ${({ theme }) => theme.colors.TitleText};
 `;
-export const ListFilter = styled.TouchableOpacity`
-  width: 120px;
-  height: 46px;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #e1e1e1;
-  border-radius: 10px;
+export const ListFilter = styled(SelectDropdown).attrs({
+  buttonStyle:{
+    width: 120,
+    height: 46,
+    backgroundColor: '#fff',
+    borderRadius: 5,
+    border:1,
+    borderColor: '#DCDCDC',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+})`
+ 
 `;
 
 export const IconsArrow = styled(Feather)`
