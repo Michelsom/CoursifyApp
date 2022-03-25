@@ -1,29 +1,25 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useContext } from "react";
-import { FlatList, Image, Linking } from "react-native";
+import { ActivityIndicator, FlatList, Image, Linking } from "react-native";
 import { RenderItemCategories } from "../../components/CategoriesToHomePage";
 import { HeaderHome } from "../../components/Header";
 import * as S from "./style";
 import AppContext from "../../context/app";
 import { GoToWebPage } from "../../components/GoToWebPage/index";
 import SelectDropdown from "react-native-select-dropdown";
+import theme from "../../global/styles/theme";
 
 export const Home = () => {
-  const { categories, loading } = useContext(AppContext);
-  const countries = ["A-Z", "Z-A "];
-  async function filterCategories(item) {
-    if (item.name === "Todos") {
-      return true;
-    }
-    return false;
-  }
+  const { media, categories, loading, posts } = useContext(AppContext);
+  const countries = ["A-Z", "Z-A"];
 
   return (
     <S.Container>
       <StatusBar style={"inverted"} translucent={false} />
       {loading ? (
         <S.GlobalStyleActivityIndicator>
-          <S.GlobalActivityIndicator />
+          <ActivityIndicator color={theme.colors.primaryColor} size={150} />
+          <S.Consult>Consultando...</S.Consult>
         </S.GlobalStyleActivityIndicator>
       ) : (
         <>

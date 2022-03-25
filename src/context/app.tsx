@@ -63,7 +63,7 @@ export const AppProvider: React.FC = ({ children }) => {
 
   async function goToPostSpecific(IdPost: number) {
     try {
-      console.log("dentro de context",IdPost);
+      console.log("dentro de context", IdPost);
       setLoading(true);
       const receptPostSpecific = await GoToSpecificPost(IdPost);
       console.log("o que me retornou", receptPostSpecific);

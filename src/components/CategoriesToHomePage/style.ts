@@ -26,3 +26,17 @@ export const TextSeeMore = styled.Text`
   font-size: 17px;
 
 `;
+export const GlobalStyleActivityIndicator = styled.View`
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+`;
+export const Consult =styled.Text`
+font-size: 20px;
+align-items: center;
+justify-content: center;
+font-family: ${({ theme }) => theme.fonts.robotoMedium};
+color: ${({ theme }) => theme.colors.primaryColor};
+`;

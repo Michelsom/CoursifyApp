@@ -21,7 +21,7 @@ export const App = () => {
   });
   if (!fontsLoaded) {
     if (Platform.OS === "ios")
-      return <View style={{ backgroundColor: "", flex: 1 }} />;
+      return <View style={{ backgroundColor: "#fff", flex: 1 }} />;
     return <AppLoading />;
   }
   return (

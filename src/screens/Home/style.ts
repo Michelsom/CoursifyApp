@@ -54,17 +54,19 @@ export const IconsArrow = styled(Feather)`
   color: #686868;
 `;
 
-export const GlobalActivityIndicator = styled.ActivityIndicator.attrs({
-  size: 50,
-})`
-  color: ${({ theme }) => theme.colors.primaryColor};
-`;
 export const GlobalStyleActivityIndicator = styled.View`
   position: absolute;
   align-items: center;
   justify-content: center;
   height: 100%;
   width: 100%;
+`;
+export const Consult =styled.Text`
+font-size: 20px;
+align-items: center;
+justify-content: center;
+font-family: ${({ theme }) => theme.fonts.robotoMedium};
+color: ${({ theme }) => theme.colors.primaryColor};
 `;
 export const ViewBottom = styled.View`
   width: 100%;
