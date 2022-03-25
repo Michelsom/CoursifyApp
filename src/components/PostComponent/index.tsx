@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import AppContext from "../../context/app";
 import { Posts } from "../../models/posts";
 import * as S from "./style";
+import HTMLView from "react-native-htmlview";
 
 interface PostsProps {
   item: Posts;
@@ -24,7 +25,10 @@ export const PostComponent: React.FC<PostsProps> = ({ item }) => {
   async function GoToPost() {
     const returnPost = await goToPostSpecific(item.id);
     if (returnPost) {
-      navigate("Products" as never, { item: returnPost, image:image } as never);
+      navigate(
+        "Products" as never,
+        { item: returnPost, image: image } as never
+      );
     }
   }
   useEffect(() => {
@@ -47,7 +51,7 @@ export const PostComponent: React.FC<PostsProps> = ({ item }) => {
       />
       <S.RowToTexts>
         <S.TextTitle>{item.title.rendered}</S.TextTitle>
-        <S.Description numberOfLines={4}>{item.excerpt.rendered}</S.Description>
+        <S.Description value={item.excerpt.rendered.substr(0, 100) + "..."} />
         <S.HeadMore>Leia mais</S.HeadMore>
       </S.RowToTexts>
     </S.Content>

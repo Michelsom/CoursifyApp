@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import HTMLView from "react-native-htmlview";
 
 export const Content = styled.TouchableOpacity`
   width: 235px;
@@ -13,6 +14,7 @@ export const TextTitle = styled.Text`
   text-align: left;
   font-size: 16px;
   width: 100%;
+  height: 60px;
   margin-top: 15px;
   font-family: ${({ theme }) => theme.fonts.robotoBold};
   color: ${({ theme }) => theme.colors.primaryColor};
@@ -38,12 +40,4 @@ export const HeadMore = styled.Text`
   color: ${({ theme }) => theme.colors.secondaryColor};
   opacity: 1;
 `;
-export const Description = styled.Text`
-  text-align: left;
-  font-size: 15px;
-  width: 100%;
-  margin-top: 15px;
-  font-family: ${({ theme }) => theme.fonts.robotoRegular};
-  color: ${({ theme }) => theme.colors.descriptionTextColor};
-  opacity: 1;
-`;
+export const Description = styled(HTMLView)``;
