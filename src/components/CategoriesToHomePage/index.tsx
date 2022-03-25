@@ -1,11 +1,10 @@
-import { useContext } from "react";
-import { ActivityIndicator, FlatList, Text } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
+import { FlatList } from "react-native";
 
-import { PostComponent } from "../PostComponent";
-import * as S from "./style";
-import AppContext from "../../context/app";
 import { Category } from "../../models/categories";
+import { PostComponent } from "../PostComponent";
+import AppContext from "../../context/app";
+import * as S from "./style";
 
 interface PostsProps {
   item: Category;
@@ -17,15 +16,14 @@ export const RenderItemCategories: React.FC<PostsProps> = ({ item }) => {
   return (
     <S.Content>
       <S.RowToTexts>
-        <S.TextTitle>{item.name}</S.TextTitle>
+        <S.TextTitle>{item.name.toUpperCase()}</S.TextTitle>
         <S.TextSeeMore>VER MAIS</S.TextSeeMore>
       </S.RowToTexts>
       <FlatList
-        data={posts.filter((e) => e.categories.includes(item.id) )}
+        data={posts.filter((e) => e.categories.includes(item.id))}
         horizontal={true}
         renderItem={({ item }) => <PostComponent item={item} />}
       />
-      {/* <S.ViewProducts></S.ViewProducts> */}
     </S.Content>
   );
 };
